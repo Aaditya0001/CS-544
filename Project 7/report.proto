@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+// Define the weather report message
+message Report {
+    string date = 1;          // Date of the weather report in "YYYY-MM-DD" format
+    double degrees = 2;       // Max temperature observed on this date
+    string station_id = 3;    // Station ID that generated the report
+}
+
