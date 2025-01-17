@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package matchdb;
+
+// The MatchCount service definition
+service MatchCount {
+    // RPC to get the number of matches for a specific country and winning team
+    rpc GetMatchCount(GetMatchCountReq) returns (GetMatchCountResp);
+}
+
+// Request message for GetMatchCount
+message GetMatchCountReq {
+    string country = 1;        // The country to filter matches
+    string winning_team = 2;   // The winning team to filter matches
+}
+
+// Response message for GetMatchCount
+message GetMatchCountResp {
+    int32 num_matches = 1;     // The number of matches found
+}
+
