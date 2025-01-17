@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package table;
+
+service Table {
+  rpc Upload (UploadReq) returns (UploadResponse) {}
+  rpc ColSum(ColSumReq) returns (ColSumResponse) {}
+}
+
+message UploadReq {
+  bytes csv_data = 1;
+}
+
+message UploadResponse {
+  string error = 1;
+  bool success = 2;
+}
+
+// The request message for column summation
+message ColSumReq {
+    string column = 1;  // The column to sum
+    string format = 2;  // Format type: "csv" or "parquet"
+}
+
+// The response message for column summation
+message ColSumResponse {
+    int64 total = 1;    // The total sum of the specified column
+    string error = 2;   // Error message if any
+}
+
